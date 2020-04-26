@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             var intento = Intent(this, VentanaPrincipal::class.java)
             startActivity(intento)
             finish()
-        }, 100) //3500 milliseconds
+        }, 3500) //3500 milliseconds
 
     }
 

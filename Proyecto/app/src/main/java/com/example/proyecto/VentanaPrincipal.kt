@@ -16,6 +16,7 @@ class VentanaPrincipal : AppCompatActivity() {
         setSupportActionBar(toolbar)
         //supportActionBar?.title = "Valorant" //<- no cambiar esto, he añadido un textView en la toolbar para personalizar la fuente
 
+        supportFragmentManager.beginTransaction().add(R.id.contenedorCeldas, ContenedorCeldasFragment()).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

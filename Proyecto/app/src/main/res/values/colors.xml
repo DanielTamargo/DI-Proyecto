@@ -10,4 +10,6 @@
     <color name="smoothOrange">#F4A950</color>
     <color name="smoothDarkBlue">#243665</color>
     <color name="valorant">#ff4655</color>
+    <color name="smoothGray">#323336</color>
+    <color name="negroTransparente">#80000000</color>
 </resources>

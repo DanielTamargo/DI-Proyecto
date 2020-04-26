@@ -5,4 +5,8 @@
     <string name="sobre_nosotros">Sobre Nosotros</string>
     <string name="ultimo_parche">Último Parche</string>
     <string name="terminos_legales">Términos Legales</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descripcion">Descripción</string>
 </resources>
