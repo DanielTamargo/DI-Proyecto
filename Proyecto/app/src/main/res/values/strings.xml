@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Qué es Valorant</string>
+    <string name="valorant">Valorant</string>
+    <string name="buscar">Buscar</string>
+    <string name="sobre_nosotros">Sobre Nosotros</string>
+    <string name="ultimo_parche">Último Parche</string>
+    <string name="terminos_legales">Términos Legales</string>
+</resources>
