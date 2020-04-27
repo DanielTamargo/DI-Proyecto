@@ -48,10 +48,16 @@ dependencies {
     implementation "androidx.room:room-guava:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
-    //RecyclerView
+    //RecyclerView (tabla con celdas)
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    //CardView
+    //CardView (vista de información en modo tarjeta)
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    //ViewPager2 (deslizar con el dedo horizontalmente)
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    //Picasso (imágenes menos pesadas (están en la nube)
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
 }

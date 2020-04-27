@@ -25,7 +25,8 @@
                 android:id="@+id/fondoImagen"
                 android:scaleType="fitCenter"
                 android:src="@drawable/valorant_mapas_haven"
-                android:background="@color/valorant"/>
+                android:background="@color/valorant"
+                android:contentDescription="@string/descripcion" />
 
             <TextView
                 android:id="@+id/tv_num"
@@ -44,7 +45,7 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_descripcion"
                 android:layout_below="@+id/fondoImagen"
