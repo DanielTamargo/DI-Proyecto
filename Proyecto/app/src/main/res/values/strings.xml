@@ -8,8 +8,25 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Descripciones -->
     <string name="descripcion">Descripción</string>
     <string name="imagenmapahaven">ImagenMapaHaven</string>
     <string name="imagendelmapa">ImagenDelMapa</string>
-    <string name="haven">HAVEN</string>
+
+    <string name="desliza_con_el_dedo"><![CDATA[<- ¡Desliza con el dedo! ->]]></string>
+    <string name="desliza_dedo">¡Desliza con el dedo!</string>
+
+    <!-- Strings Títulos de los mapas -->
+    <string name="haven">&lt;u&gt;HAVEN&lt;/u&gt;</string>
+    <string name="split">SPLIT</string>
+    <string name="bind">BIND</string>
+
+    <!-- Strings Descripciones del mapa Haven -->
+    <string name="haven_desc_1">Haven es el mapa con más puntos para plantar la Spike (bomba). También es el mapa con más lugares que cubrir en defensa: A, B y C, por lo que distribuirse en este mapa cuando toca defender es especialmente complicado.</string>
+    <string name="haven_desc_2">Echemos un vistazo al mapa</string>
+    <string name="haven_desc_3">Para acceder a A, tenemos dos opciones: A Long y A Short, ambas conectadas por A Lobby. B tiene un solo acceso directo: Mid Courtyard. Sin embargo, alguien tendrá que cubrir C Short, pues este punto es clave en la defensa de esta parte del mapa: desde C Short, se puede acceder al punto C y a B a través de C Link.</string>
+    <string name="haven_desc_4">Hay otro punto más para acceder a C: C Long, un lugar que normalmente interesa cubrir con un francotirador. De momento, debido al poco tiempo pasado desde el lanzamiento de la beta cerrada, no se conocen demasiadas tácticas en este mapa. Actualizaremos este artículo en el futuro con las estrategias más utilizadas.</string>
+    <string name="haven_vista_defensores">Activar vista defensores habituales</string>
+
 </resources>
