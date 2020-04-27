@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.Toolbar
+import com.example.proyecto.Fragmentos.ContenedorCeldasFragment
 
 class VentanaPrincipal : AppCompatActivity() {
 
@@ -17,7 +18,9 @@ class VentanaPrincipal : AppCompatActivity() {
         setSupportActionBar(toolbar)
         //supportActionBar?.title = "Valorant" //<- no cambiar esto, he añadido un textView en la toolbar para personalizar la fuente
 
-        supportFragmentManager.beginTransaction().add(R.id.contenedorCeldas, ContenedorCeldasFragment()).commit()
+        supportFragmentManager.beginTransaction().add(R.id.contenedorCeldas,
+            ContenedorCeldasFragment()
+        ).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

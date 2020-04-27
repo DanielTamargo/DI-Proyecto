@@ -5,5 +5,5 @@
     android:layout_height="wrap_content"
     android:id="@+id/contenedorCeldas"
     android:scrollbars="vertical"
-    tools:context=".ContenedorCeldasFragment">
+    tools:context=".Fragmentos.ContenedorCeldasFragment">
 </androidx.recyclerview.widget.RecyclerView>
