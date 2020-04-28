@@ -1,6 +1,7 @@
 package com.example.proyecto.BBDD
 
 import androidx.room.*
+import io.reactivex.Single
 
 @Dao
 interface PersonajeDao {
@@ -19,5 +20,8 @@ interface PersonajeDao {
 
     @Delete
     fun delete(personaje: Personaje)
+
+    @Delete
+    fun deleteAll(personajes: List<Personaje>): Single<Int>
 
 }

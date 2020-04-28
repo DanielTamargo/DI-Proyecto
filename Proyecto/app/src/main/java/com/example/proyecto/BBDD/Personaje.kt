@@ -7,6 +7,8 @@ import androidx.room.PrimaryKey
 //Documentación básica: https://developer.android.com/training/data-storage/room/defining-data#kotlin
 //Documentación relaciones: https://developer.android.com/training/data-storage/room/relationships
 
+//val bd = Room.databaseBuilder(this, AppDatabase::class.java, "personajes").build()
+
 @Entity(tableName = "personajes")
 data class Personaje (
     @PrimaryKey val id: Int = 1,

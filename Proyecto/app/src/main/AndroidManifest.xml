@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VentanaPersonajes"></activity>
+        <activity android:name=".TestingBBDD"></activity>
+        <activity android:name=".VentanaPersonajes" />
         <activity android:name=".VentanaMapaHaven" />
         <activity
             android:name=".VentanaPrincipal"

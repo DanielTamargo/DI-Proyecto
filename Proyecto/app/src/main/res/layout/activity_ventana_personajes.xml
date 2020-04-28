@@ -7,6 +7,10 @@
     tools:context=".VentanaPersonajes"
     android:background="@color/softBlue">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,7 +104,7 @@
                         android:scaleType="centerCrop"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:src="@drawable/Omen_1_Shrouded_Step"
+                        android:src="@drawable/omen_1_shrouded_step"
                         tools:ignore="NestedWeights"
                         android:contentDescription="@string/habilidad1" />
 
@@ -112,7 +116,7 @@
                         android:scaleType="centerCrop"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:src="@drawable/Omen_2_Paranoia"
+                        android:src="@drawable/omen_2_paranoia"
                         android:contentDescription="@string/habilidad2" />
 
                     <ImageButton
@@ -123,7 +127,7 @@
                         android:scaleType="centerCrop"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:src="@drawable/Omen_3_Dark_Cover"
+                        android:src="@drawable/omen_3_dark_cover"
                         android:contentDescription="@string/habilidad3" />
 
                     <ImageButton
@@ -134,7 +138,7 @@
                         android:scaleType="centerCrop"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:src="@drawable/Omen_4_From_the_Shadows"
+                        android:src="@drawable/omen_3_dark_cover"
                         android:contentDescription="@string/habilidad4" />
 
                 </LinearLayout>
@@ -145,7 +149,7 @@
                     android:layout_weight="3"
 
                     android:scaleType="centerCrop"
-                    android:src="@drawable/Omen_Half" />
+                    android:src="@drawable/omen_half" />
 
             </LinearLayout>
             <View

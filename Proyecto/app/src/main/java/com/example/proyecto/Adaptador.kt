@@ -46,9 +46,13 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
                     //Toast.makeText(context, "¡¡Mapas!!", Toast.LENGTH_SHORT).show()
                 }
                 "Personajes" -> {
-                    Toast.makeText(context, "¡¡Personajes!!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(context, VentanaPersonajes::class.java)
+                    context.startActivity(intent)
+                    //Toast.makeText(context, "¡¡Personajes!!", Toast.LENGTH_SHORT).show()
                 }
                 "Armas" -> {
+                    val intent = Intent(context, TestingBBDD::class.java)
+                    context.startActivity(intent)
                     Toast.makeText(context, "¡¡Armas!!", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
@@ -87,13 +91,13 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
             holder.tv_num.text = opciones_main[position]
             if (position == 0) {
                 //Mapas
-
+                holder.tv_desc.text = "Aprende cuales son los puntos fuertes y débiles de cada mapa, y conviértete en un jugador capaz de dominarlos."
             } else if (position == 1) {
                 //Personajes
-
+                holder.tv_desc.text = "Echa un vistazo a cada personaje y sus habilidades. Entender cómo funcionan los distintos personajes te ayudará a comprender mejor el juego y así mejorar como jugador."
             } else if (position == 2) {
                 //Armas
-
+                holder.tv_desc.text = "Cada arma tiene su utilidad. Aún en construcción..."
             }
         }
     }
