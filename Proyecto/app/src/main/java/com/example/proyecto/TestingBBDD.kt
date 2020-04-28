@@ -2,6 +2,7 @@ package com.example.proyecto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
@@ -64,21 +65,39 @@ class TestingBBDD : AppCompatActivity() {
 
         val habilidades = arrayListOf(omen_1, omen_2, omen_3, omen_4)
 
+        for (habilidad in habilidades) {
+            Log.d("Habilidad: ", habilidad.nombre)
+        }
+
         Thread(Runnable {
             try {
                 val bd = Room.databaseBuilder(this, AppDatabase::class.java, "personajes").build()
                 bd.personajeDao().insertAll(omen)
                 bd.close()
 
+                runOnUiThread {
+                    Toast.makeText(this, "¡Personaje Omen introducido!", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    Toast.makeText(this, "Error con: Omen - Habilidades", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            try {
                 val bd_habilidades =
                     Room.databaseBuilder(this, AppDatabase::class.java, "habilidades").build()
                 for (habilidad in habilidades) {
-                    bd_habilidades.habilidadDao().insertAll()
+                    bd_habilidades.habilidadDao().insertAll(habilidad)
                 }
                 bd_habilidades.close()
-                Toast.makeText(this, "¡Datos de Omen introducidos!", Toast.LENGTH_SHORT).show()
+                runOnUiThread {
+                    Toast.makeText(this, "¡Habilidades de Omen introducidas!", Toast.LENGTH_SHORT).show()
+                }
             } catch (e: Exception) {
-                Toast.makeText(this, "Error con: Omen", Toast.LENGTH_SHORT).show()
+                runOnUiThread {
+                    Toast.makeText(this, "Error con: Omen - Habilidades", Toast.LENGTH_SHORT).show()
+                }
             }
         }).start()
 
