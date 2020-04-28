@@ -52,7 +52,7 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
                     Toast.makeText(context, "¡¡Armas!!", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
-                    Toast.makeText(context, "¡¡Has encontrado el primer Easter Egg!!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "¡¡Has encontrado el primer Easter Egg!!", Toast.LENGTH_LONG).show()
                 }
             }
 
@@ -85,6 +85,16 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
         } else {
             if (holder.card_view.visibility == View.INVISIBLE) holder.card_view.visibility = View.VISIBLE
             holder.tv_num.text = opciones_main[position]
+            if (position == 0) {
+                //Mapas
+
+            } else if (position == 1) {
+                //Personajes
+
+            } else if (position == 2) {
+                //Armas
+
+            }
         }
     }
 

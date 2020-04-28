@@ -72,7 +72,7 @@ class SplitFragment : Fragment() {
 
         //Listener checkbox
         split_checkBox_defensores.setOnClickListener {
-            listener?.onCLickFragmentButton("split")
+            listener?.onCLickFragmentButton("split", 0)
         }
 
     }

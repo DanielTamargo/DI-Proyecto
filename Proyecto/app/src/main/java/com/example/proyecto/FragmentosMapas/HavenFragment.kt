@@ -9,15 +9,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.HeaderViewListAdapter
 import android.widget.TextView
 import com.example.proyecto.OnFragmentActionsListener
 import com.example.proyecto.R
 import kotlinx.android.synthetic.main.fragment_haven.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class HavenFragment : Fragment() {
 
     private var listener: OnFragmentActionsListener? = null
@@ -77,7 +73,11 @@ class HavenFragment : Fragment() {
 
         //Listener checkbox
         haven_checkBox_defensores.setOnClickListener {
-            listener?.onCLickFragmentButton("haven")
+            listener?.onCLickFragmentButton("haven", 0)
+        }
+
+        haven_tv_volver.setOnClickListener {
+            listener?.onCLickFragmentButton("haven", 1)
         }
 
     }
