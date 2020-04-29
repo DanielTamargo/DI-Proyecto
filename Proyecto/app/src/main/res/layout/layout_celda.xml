@@ -48,9 +48,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_descripcion"
+                android:textStyle="bold"
                 android:layout_below="@+id/fondoImagen"
                 android:layout_margin="5dp"
                 android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
                 android:text="@string/descripcion" />
 
         </RelativeLayout>

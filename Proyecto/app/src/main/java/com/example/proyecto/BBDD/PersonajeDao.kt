@@ -1,6 +1,7 @@
 package com.example.proyecto.BBDD
 
 import androidx.room.*
+import androidx.room.OnConflictStrategy.REPLACE
 import io.reactivex.Single
 
 @Dao
@@ -15,8 +16,12 @@ interface PersonajeDao {
     @Update
     fun updateCharacter(vararg personaje: Personaje)
 
-    @Insert
+    //(onConflict = REPLACE)
+    @Insert(onConflict = REPLACE)
     fun insertAll(vararg personajes: Personaje)
+
+    @Insert
+    fun insertar(vararg personajes: Personaje)
 
     @Delete
     fun delete(personaje: Personaje)

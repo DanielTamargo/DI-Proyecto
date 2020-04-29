@@ -97,7 +97,8 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:background="#b55e12"
+                        android:id="@+id/personajes_ib_ability_1"
+                        android:background="@color/elegantOrange"
                         android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_margin="10dp"
@@ -109,6 +110,7 @@
                         android:contentDescription="@string/habilidad1" />
 
                     <ImageButton
+                        android:id="@+id/personajes_ib_ability_2"
                         android:background="@color/colorPrimaryDark"
                         android:padding="10dp"
                         android:layout_width="wrap_content"
@@ -120,6 +122,7 @@
                         android:contentDescription="@string/habilidad2" />
 
                     <ImageButton
+                        android:id="@+id/personajes_ib_ability_3"
                         android:background="@color/colorPrimaryDark"
                         android:padding="10dp"
                         android:layout_width="wrap_content"
@@ -131,6 +134,7 @@
                         android:contentDescription="@string/habilidad3" />
 
                     <ImageButton
+                        android:id="@+id/personajes_ib_ability_4"
                         android:background="@color/colorPrimaryDark"
                         android:padding="10dp"
                         android:layout_width="wrap_content"
@@ -144,6 +148,7 @@
                 </LinearLayout>
 
                 <ImageView
+                    android:id="@+id/personajes_i_imgpersonaje"
                     android:layout_width="0dp"
                     android:layout_height="380dp"
                     android:layout_weight="3"
@@ -162,6 +167,7 @@
                 />
 
             <TextView
+                android:id="@+id/personajes_tv_nombreHabilidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -171,12 +177,18 @@
                 android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/personajes_tv_descHabilidad"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:text="@string/descripcion_habilidad"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                />
 
         </LinearLayout>
     </ScrollView>
