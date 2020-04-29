@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
@@ -59,7 +58,6 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
                     Toast.makeText(context, "¡¡Has encontrado el primer Easter Egg!!", Toast.LENGTH_LONG).show()
                 }
             }
-
             //val intent = Intent(context, VentanaMapaHaven::class.java)
             //startActivity(intent)
         }

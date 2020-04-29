@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentosMapas.HavenFragment"
-    android:background="@color/softBlue">
+    android:background="@drawable/fondot_blue">
 
     <ScrollView
         android:layout_width="match_parent"

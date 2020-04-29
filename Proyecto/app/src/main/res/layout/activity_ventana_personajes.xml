@@ -7,6 +7,14 @@
     tools:context=".VentanaPersonajes"
     android:background="@color/softBlue">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/fondot"
+        android:scaleType="fitXY"
+        android:cropToPadding="true"
+        android:contentDescription="@string/descripcion" />
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -50,9 +58,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:text="@string/tvNumPj"
                     android:textColor="@color/smoothDarkBlue"
-                    android:textStyle="bold"
-                    android:text="@string/tvNumPj"/>
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/personajes_b_next"
@@ -187,7 +195,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="60dp"
                 />
 
         </LinearLayout>

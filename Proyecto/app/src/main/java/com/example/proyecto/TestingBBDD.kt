@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
@@ -39,12 +40,17 @@ class TestingBBDD : AppCompatActivity() {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
     fun guardar_personajes_base() {
-        //guardar_omen() //id: 1, ids habilidades: 1, 2, 3, 4
-        //guardar_sage() //id: 2, ids habilidades: 5, 6, 7, 8
-        //guardar_phoenix() //id: 3, ids habilidades: 9, 10, 11, 12
-        //guardar_raze() //id 4, ids habilidades: 13, 14, 15, 16
-        //guardar_jett() //id 5, ids habilidades: 17, 18, 19, 20
+        guardar_omen() //id: 1, ids habilidades: 1, 2, 3, 4
+        guardar_sage() //id: 2, ids habilidades: 5, 6, 7, 8
+        guardar_phoenix() //id: 3, ids habilidades: 9, 10, 11, 12
+        guardar_raze() //id 4, ids habilidades: 13, 14, 15, 16
+        guardar_jett() //id 5, ids habilidades: 17, 18, 19, 20
     }
 
     fun guardar_jett() {

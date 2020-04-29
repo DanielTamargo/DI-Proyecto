@@ -9,5 +9,4 @@ import androidx.room.RoomDatabase
 abstract class AppDatabase : RoomDatabase() {
     abstract fun personajeDao(): PersonajeDao
     abstract fun habilidadDao(): HabilidadDao
-
 }
