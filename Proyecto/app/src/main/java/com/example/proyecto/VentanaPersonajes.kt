@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.room.Room
 import com.example.proyecto.BBDD.AppDatabase
 import com.example.proyecto.BBDD.Habilidad
@@ -15,6 +15,7 @@ import com.example.proyecto.BBDD.Personaje
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_ventana_personajes.*
 import java.lang.Exception
+import java.util.*
 
 class VentanaPersonajes : AppCompatActivity() {
 
@@ -27,6 +28,16 @@ class VentanaPersonajes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ventana_personajes)
+
+        /*
+        val okHttp3Downloader = OkHttp3Downloader(this, Long.MAX_VALUE)
+        val picasso = Picasso.Builder(this).downloader(okHttp3Downloader).build()
+        try {
+            Picasso.setSingletonInstance(picasso)
+        } catch (e: Exception) {
+            Log.d("Error", e.toString())
+        }
+        */
 
         cargar_datos()
 
@@ -86,6 +97,7 @@ class VentanaPersonajes : AppCompatActivity() {
     }
 
     fun ejecutar_cargar_datos() {
+        cargar_fotos()
         try { cargar_datos_personaje() } catch (e: Exception) {
             //Toast.makeText(this, "Forma segura", Toast.LENGTH_SHORT).show()
             Log.d("Error", e.toString())
@@ -144,20 +156,43 @@ class VentanaPersonajes : AppCompatActivity() {
     }
 
     fun cargar_fotos() {
+
+        val drawPersonaje: Int
+        val drawHab1: Int
+        val drawHab2: Int
+        val drawHab3: Int
+        val drawHab4: Int
+
+        when (lista_personajes[index].nombre.toLowerCase(Locale.ROOT)) {
+            "omen" -> {
+                drawPersonaje = R.drawable.omen_half
+                drawHab1 = R.drawable.omen_1_shrouded_step
+                drawHab2 = R.drawable.omen_2_paranoia
+                drawHab3 = R.drawable.omen_3_dark_cover
+                drawHab4 = R.drawable.omen_4_from_the_shadows
+            }
+            else -> {
+                drawPersonaje = R.drawable.w_question_mark_half
+                drawHab1 = R.drawable.w_qm_1_qm
+                drawHab2 = R.drawable.w_qm_1_qm
+                drawHab3 = R.drawable.w_qm_1_qm
+                drawHab4 = R.drawable.w_qm_1_qm
+            }
+        }
+        
+        Picasso.get().load(lista_personajes[index].link_imagen).fit().centerCrop().placeholder(drawPersonaje).into(personajes_i_imgpersonaje)
+        Picasso.get().load(lista_habilidades_personaje[0].link_imagen).fit().centerCrop().placeholder(drawHab1).into(personajes_ib_ability_1)
+        Picasso.get().load(lista_habilidades_personaje[1].link_imagen).fit().centerCrop().placeholder(drawHab2).into(personajes_ib_ability_2)
+        Picasso.get().load(lista_habilidades_personaje[2].link_imagen).fit().centerCrop().placeholder(drawHab3).into(personajes_ib_ability_3)
+        Picasso.get().load(lista_habilidades_personaje[3].link_imagen).fit().centerCrop().placeholder(drawHab4).into(personajes_ib_ability_4)
+
+        /*
         Picasso.with(this).load("https://i.pinimg.com/474x/44/e1/e1/44e1e10e09b6c5d1564b9266da76a463.jpg").into(personajes_i_imgpersonaje)
         Picasso.with(this).load("https://4.bp.blogspot.com/-Qbuk6jFGxPc/UFy6PTRxMrI/AAAAAAAABsg/UXZZeffnUCo/s1600/1453424.jpg").into(personajes_ib_ability_1)
         Picasso.with(this).load("https://i.pinimg.com/564x/b8/c1/e3/b8c1e36f90d68bb8b489f84cb67c41fa.jpg").into(personajes_ib_ability_2)
         Picasso.with(this).load("https://todosignificados.com/wp-content/uploads/2019/06/0c6a3ba5a4d68f0c09a1498ef85b16e5-1.jpg").into(personajes_ib_ability_3)
         Picasso.with(this).load("https://a.wattpad.com/cover/124675895-288-k3882.jpg").into(personajes_ib_ability_4)
-
-    }
-
-    fun cargar_fotos_backup() {
-        Picasso.with(this).load(lista_personajes[index].link_imagen).into(personajes_i_imgpersonaje)
-        Picasso.with(this).load(lista_habilidades_personaje[0].link_imagen).into(personajes_ib_ability_1)
-        Picasso.with(this).load(lista_habilidades_personaje[1].link_imagen).into(personajes_ib_ability_2)
-        Picasso.with(this).load(lista_habilidades_personaje[2].link_imagen).into(personajes_ib_ability_3)
-        Picasso.with(this).load(lista_habilidades_personaje[3].link_imagen).into(personajes_ib_ability_4)
+        */
     }
 
     fun cargar_habilidades() {

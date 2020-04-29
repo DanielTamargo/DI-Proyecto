@@ -8,7 +8,6 @@
     app:title=" "
     app:titleTextColor="@color/valorant"
     app:subtitleTextColor="@color/softOrange"
-
     app:navigationIcon="@drawable/valorant_logo_1_big2">
 
     <androidx.appcompat.widget.AppCompatTextView
