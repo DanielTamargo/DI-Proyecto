@@ -19,11 +19,13 @@ import com.example.proyecto.OnFragmentActionsListener
 import com.example.proyecto.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_pistolas.*
+import kotlinx.android.synthetic.main.fragment_todas_las_armas.*
+import kotlinx.android.synthetic.main.layout_celda.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class PistolasFragment : Fragment() {
+class TodasLasArmasFragment : Fragment() {
 
     private var listener: OnFragmentActionsListener? = null
     private val listaArmas: MutableList<Arma> = mutableListOf()
@@ -33,8 +35,8 @@ class PistolasFragment : Fragment() {
         private val ARG_TITLE="ARG_TITLE"
         private val ARG_COLOR="ARG_COLOR"
 
-        fun newInstance(title: String, color: Int): PistolasFragment {
-            val fragment: PistolasFragment = PistolasFragment()
+        fun newInstance(title: String, color: Int): TodasLasArmasFragment {
+            val fragment: TodasLasArmasFragment = TodasLasArmasFragment()
             fragment.arguments = Bundle().apply {
                 putString(ARG_TITLE, title)
                 putInt(ARG_COLOR, color)
@@ -64,14 +66,18 @@ class PistolasFragment : Fragment() {
             //si los argumentos no se pasan bien podemos poner errores
         }
 
-        cargar_datos(listaArmas)
+        val fragmentoPistolas = PistolasFragment()
+        fragmentoPistolas.cargar_datos(listaArmas)
+        val fragmentoAsalto = AsaltoFragment()
+        fragmentoAsalto.cargar_datos(listaArmas)
+        val fragmentoRifles = RiflesFragment()
+        fragmentoRifles.cargar_datos(listaArmas)
         cargar_celdas()
     }
 
-    @SuppressLint("SetTextI18n")
     fun cargar_celdas() {
         //cogemos la referencia para luego colgarle a ese LinearLayout las celdas que construyamos
-        val ll_principal = pistola_layout_a_construir
+        val ll_principal = todas_las_armas_layout_a_construir
 
         //params width, height y weight del layout donde estarán el nombre del arma y la foto
         val ll_photo_titulo_params = LinearLayout.LayoutParams(
@@ -420,43 +426,10 @@ class PistolasFragment : Fragment() {
         ll_principal.addView(salto1)
     }
 
-    fun cargar_datos(listaArmas: MutableList<Arma>) {
-        val pistola1_classic = Arma(1, "Classic",
-            "https://i.gyazo.com/73be727d8c2e73e0fdf5721077de112c.png",
-        "Pistola", "Free",
-            listOf("78", "26", "22"), listOf("66", "22", "18"), listOf("66", "22", "18"))
-
-        val pistola2_shorty = Arma(2, "Shorty",
-            "https://i.gyazo.com/bd0886c28e80f65d871398fa8ac467f9.png",
-            "Pistola-Escopeta", "200",
-            listOf("36", "12", "10"), listOf("24", "8", "6"), listOf("24", "8", "6"))
-
-        val pistola3_frenzy = Arma(3, "Frenzy",
-            "https://i.gyazo.com/de21c40b4835e3dc185236b5c2ed2291.png",
-            "Pistola-Subfusil", "400",
-            listOf("78", "26", "22"), listOf("63", "21", "17"), listOf("63", "21", "17"))
-
-        val pistola4_ghost = Arma(4, "Ghost",
-            "https://i.gyazo.com/ef1d51e39ffd262ce3ab78dfa8392271.png",
-            "Pistola", "500",
-            listOf("105", "33", "26"), listOf("105", "33", "26"), listOf("88", "25", "21"))
-
-        val pistola5_sheriff = Arma(5, "Sheriff",
-            "https://i.gyazo.com/b7f7661035b5974c346c881f912acbe0.png",
-            "Pistola-Revolver", "800",
-            listOf("160", "55", "47"), listOf("160", "55", "47"), listOf("145", "50", "43"))
-
-        listaArmas.add(pistola1_classic)
-        listaArmas.add(pistola2_shorty)
-        listaArmas.add(pistola3_frenzy)
-        listaArmas.add(pistola4_ghost)
-        listaArmas.add(pistola5_sheriff)
-
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pistolas, container, false)
+        return inflater.inflate(R.layout.fragment_todas_las_armas, container, false)
     }
 
 }
+

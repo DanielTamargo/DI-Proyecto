@@ -50,20 +50,14 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
                     //Toast.makeText(context, "¡¡Personajes!!", Toast.LENGTH_SHORT).show()
                 }
                 "Armas" -> {
-                    /*
-                    val intent = Intent(context, TestingBBDD::class.java)
-                    context.startActivity(intent)
-                    */
                     val intent = Intent(context, VentanaArmas::class.java)
                     context.startActivity(intent)
-                    Toast.makeText(context, "¡¡Armas!!", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(context, "¡¡Armas!!", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
                     Toast.makeText(context, "¡¡Has encontrado el primer Easter Egg!!", Toast.LENGTH_LONG).show()
                 }
             }
-            //val intent = Intent(context, VentanaMapaHaven::class.java)
-            //startActivity(intent)
         }
 
     }
@@ -76,7 +70,7 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
 
     //Número de celdas a devolver
     override fun getItemCount(): Int {
-        //como la última se ve incompleta si tengo la toolbar, intentaré añadir una y a la útlima le quitaré todos los elementos
+        //como la última se ve incompleta si tengo la toolbar, intentaré añadir una y a la útlima le quitaré todos los elementos o la haré invisible
         return opciones_main.size + 1
     }
 

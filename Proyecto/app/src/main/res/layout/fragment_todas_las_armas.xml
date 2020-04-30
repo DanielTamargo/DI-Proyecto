@@ -3,19 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentosArmas.RiflesFragment"
+    tools:context=".FragmentosArmas.TodasLasArmasFragment"
     android:background="@color/softBlue">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:id="@+id/rifles_layout_a_construir"
+            android:id="@+id/todas_las_armas_layout_a_construir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-
 
         </LinearLayout>
     </ScrollView>

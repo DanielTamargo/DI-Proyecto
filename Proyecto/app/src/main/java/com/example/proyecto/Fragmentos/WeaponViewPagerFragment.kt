@@ -32,11 +32,10 @@ class WeaponViewPagerFragment : Fragment() {
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when(position) {
-                0 -> "Pistolas"
-                1 -> "Asalto"
-                2 -> "Rifle"
-                3 -> "Crear"
-                else -> "Armas"
+                1 -> "Pistolas"
+                2 -> "Asalto"
+                3 -> "Rifles"
+                else -> "Todas"
             }
         }.attach()
     }
