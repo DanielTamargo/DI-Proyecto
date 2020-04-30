@@ -65,6 +65,8 @@
     <string name="anterior">Anterior</string>
     <string name="tvNumPj">1/5</string>
     <string name="siguiente">Siguiente</string>
+    <string name="crear_personaje">Crear Personaje</string>
+    <string name="editar_personaje">Editar Personaje</string>
 
 
 </resources>

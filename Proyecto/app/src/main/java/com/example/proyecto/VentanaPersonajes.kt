@@ -1,6 +1,7 @@
 package com.example.proyecto
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -43,6 +44,20 @@ class VentanaPersonajes : AppCompatActivity() {
         */
 
         cargar_datos()
+
+        personajes_b_editar.setOnClickListener {
+            if (index in 0..4) {
+                //alerta
+            } else {
+                //abrir ventana crear pero rellenando los datos
+            }
+        }
+
+        personajes_b_crear.setOnClickListener {
+            //abrir ventana crear personaje
+            val intent = Intent(this, VentanaCrearEditarPersonaje::class.java)
+            startActivity(intent)
+        }
 
         personajes_b_next.setOnClickListener {
             index++
