@@ -14,7 +14,6 @@ class VentanaMapaHaven : AppCompatActivity(), OnFragmentActionsListener {
     private lateinit var toolbar: Toolbar
     private var num_veces_clic_checkbox = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ventana_mapa_haven)
@@ -24,10 +23,12 @@ class VentanaMapaHaven : AppCompatActivity(), OnFragmentActionsListener {
         setSupportActionBar(toolbar)
     }
 
+    /*
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
+    */
 
     fun easter_egg_3() {
         num_veces_clic_checkbox ++
@@ -78,5 +79,9 @@ class VentanaMapaHaven : AppCompatActivity(), OnFragmentActionsListener {
                 Toast.makeText(this, "¡¡Has encontrado el segundo Easter Egg!!", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    override fun onClickWeaponFragmentButton(nombre_pestanya: String) {
+        //nada
     }
 }

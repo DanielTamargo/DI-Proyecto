@@ -218,11 +218,11 @@ class VentanaPersonajes : AppCompatActivity() {
             }
         }
         //Picasso.get().load("https://assets.cdn.moviepilot.de/files/830b56f3da15eb6934e86a3f55e430a97ce7cbfe90378a6262967a573977/fill/992/477/10_18%20Naruto%20Shippuden%20ProSieben%20Maxx%20letzte%20Folgen.jpg\n").fit().centerCrop().placeholder(drawPersonaje).into(personajes_i_imgpersonaje)
-        Picasso.get().load(lista_personajes[index].link_imagen).fit().centerCrop().placeholder(drawPersonaje).into(personajes_i_imgpersonaje)
-        Picasso.get().load(lista_habilidades_personaje[0].link_imagen).fit().centerCrop().placeholder(drawHab1).into(personajes_ib_ability_1)
-        Picasso.get().load(lista_habilidades_personaje[1].link_imagen).fit().centerCrop().placeholder(drawHab2).into(personajes_ib_ability_2)
-        Picasso.get().load(lista_habilidades_personaje[2].link_imagen).fit().centerCrop().placeholder(drawHab3).into(personajes_ib_ability_3)
-        Picasso.get().load(lista_habilidades_personaje[3].link_imagen).fit().centerCrop().placeholder(drawHab4).into(personajes_ib_ability_4)
+        Picasso.get().load(lista_personajes[index].link_imagen).fit().placeholder(drawPersonaje).into(personajes_i_imgpersonaje)
+        Picasso.get().load(lista_habilidades_personaje[0].link_imagen).fit().placeholder(drawHab1).into(personajes_ib_ability_1)
+        Picasso.get().load(lista_habilidades_personaje[1].link_imagen).fit().placeholder(drawHab2).into(personajes_ib_ability_2)
+        Picasso.get().load(lista_habilidades_personaje[2].link_imagen).fit().placeholder(drawHab3).into(personajes_ib_ability_3)
+        Picasso.get().load(lista_habilidades_personaje[3].link_imagen).fit().placeholder(drawHab4).into(personajes_ib_ability_4)
     }
 
     fun cargar_habilidades() {

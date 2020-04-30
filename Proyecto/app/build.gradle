@@ -62,5 +62,7 @@ dependencies {
     //implementation 'com.squareup.okhttp3:okhttp:4.1.0'
     //implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
 
-
+    //Tab Layout
+    implementation 'com.google.android.material:material:1.1.0'
+    
 }

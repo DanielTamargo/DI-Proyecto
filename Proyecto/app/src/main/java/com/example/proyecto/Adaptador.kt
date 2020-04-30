@@ -50,7 +50,11 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
                     //Toast.makeText(context, "¡¡Personajes!!", Toast.LENGTH_SHORT).show()
                 }
                 "Armas" -> {
+                    /*
                     val intent = Intent(context, TestingBBDD::class.java)
+                    context.startActivity(intent)
+                    */
+                    val intent = Intent(context, VentanaArmas::class.java)
                     context.startActivity(intent)
                     Toast.makeText(context, "¡¡Armas!!", Toast.LENGTH_SHORT).show()
                 }
