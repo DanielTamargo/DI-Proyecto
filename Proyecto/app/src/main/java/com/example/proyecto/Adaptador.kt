@@ -6,6 +6,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -28,10 +29,12 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
         var tv_num: TextView
         var card_view: CardView
         var tv_desc: TextView
+        var fondoImagen: ImageView
         init {
             card_view = v.findViewById(R.id.card_view)
             tv_num = v.findViewById(R.id.tv_num)
             tv_desc = v.findViewById(R.id.tv_descripcion)
+            fondoImagen = v.findViewById(R.id.fondoImagen)
             v.setOnClickListener(this)
         }
 
@@ -59,7 +62,6 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
                 }
             }
         }
-
     }
 
     //Situar celda
@@ -87,13 +89,16 @@ class Adaptador: RecyclerView.Adapter<Adaptador.ViewHolder>() {
             holder.tv_num.text = opciones_main[position]
             if (position == 0) {
                 //Mapas
+                holder.fondoImagen.setImageResource(R.drawable.valorant_cardview_mapas)
                 holder.tv_desc.text = "Aprende cuales son los puntos fuertes y débiles de cada mapa, y conviértete en un jugador capaz de dominarlos."
             } else if (position == 1) {
                 //Personajes
+                holder.fondoImagen.setImageResource(R.drawable.valorant_cardview_personajes)
                 holder.tv_desc.text = "Echa un vistazo a cada personaje y sus habilidades. Entender cómo funcionan los distintos personajes te ayudará a comprender mejor el juego y así mejorar como jugador."
             } else if (position == 2) {
                 //Armas
-                holder.tv_desc.text = "Cada arma tiene su utilidad. Aún en construcción..."
+                holder.fondoImagen.setImageResource(R.drawable.valorant_cardview_armas)
+                holder.tv_desc.text = "Cada arma tiene su utilidad. Aquí encontrarás un listado con todas las armas y sus especificaciones como tipo, precio o tabla de daños."
             }
         }
     }

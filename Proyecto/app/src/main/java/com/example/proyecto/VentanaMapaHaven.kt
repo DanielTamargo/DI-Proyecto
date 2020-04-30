@@ -33,7 +33,7 @@ class VentanaMapaHaven : AppCompatActivity(), OnFragmentActionsListener {
     fun easter_egg_3() {
         num_veces_clic_checkbox ++
         if (num_veces_clic_checkbox == 9) {
-            Toast.makeText(this, "¡¡Has encontrado el tercer Easter Egg!!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "¡¡Has encontrado el segundo Easter Egg!!", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -76,7 +76,7 @@ class VentanaMapaHaven : AppCompatActivity(), OnFragmentActionsListener {
             } else if (accion == 1) {
                 finish()
             } else if (accion == 2) {
-                Toast.makeText(this, "¡¡Has encontrado el segundo Easter Egg!!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "¡¡Has encontrado el tercer Easter Egg!!", Toast.LENGTH_LONG).show()
             }
         }
     }
