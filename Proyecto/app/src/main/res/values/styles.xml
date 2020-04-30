@@ -5,12 +5,12 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:colorSecondary">@color/valorant</item>
+        <item name="android:colorSecondary">@color/darkRed</item>
 
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlNormal">@color/valorant</item>
 
-        <item name="android:textColorSecondary">@color/valorant</item>
+        <item name="android:textColorSecondary">@color/darkRed</item>
         <item name="popupTheme">@style/Theme.AppCompat.Light</item>
 
         <item name="windowActionBar">false</item>

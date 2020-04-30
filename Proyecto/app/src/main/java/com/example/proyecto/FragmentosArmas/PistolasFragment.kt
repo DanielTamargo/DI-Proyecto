@@ -3,6 +3,7 @@ package com.example.proyecto.FragmentosArmas
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -63,8 +64,9 @@ class PistolasFragment : Fragment() {
             //si los argumentos no se pasan bien podemos poner errores
         }
 
-        cargar_datos()
+        cargar_datos(listaArmas)
 
+        //cogemos la referencia para luego colgarle a ese LinearLayout las celdas que construyamos
         val ll_principal = pistola_layout_a_construir
 
         //params width, height y weight del layout donde estarán el nombre del arma y la foto
@@ -78,14 +80,14 @@ class PistolasFragment : Fragment() {
         val tv_nombre_arma = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             0,
-            1f
+            1.5f
         )
 
         //params de la foto
         val photo_layout_params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             0,
-            4f
+            3.5f
         )
 
         //params width, height y weight del linear layout que va a la par con la foto
@@ -126,17 +128,35 @@ class PistolasFragment : Fragment() {
             5
         )
 
+        //códigos colores
         //softOrange: #b55e12, darkblue: #161b21, softblue: #8AAAE5, notthatsoftblue: #5b81c7
-        //personajes_ib_ability_1.setBackgroundColor(Color.parseColor("#161b21"))
+        //códigos colores daños
+        //cabeza: #d64036, cuerpo: #db7230, piernas: #d4a633
+        var colorcabeza = ""
+        var colorcuerpo = ""
+        var colorpierna = ""
+        //cómo usar los códigos:
+        //ejemplo.setBackgroundColor(Color.parseColor("#161b21"))
+
+        //como poner estilo (bold, italic...): https://stackoverflow.com/questions/6200533/how-to-set-textview-textstyle-such-as-bold-italic
+
         var color: String
         for (arma in listaArmas) {
+            // Alternamos el color del fondo para que visualmente sea más agradable
             if (contador % 2 == 0) {
-                color = "#8AAAE5"
+                color = "#5b81c7" //fondo oscuro, colores más oscuros
+                colorcabeza = "#611510"
+                colorcuerpo = "#822f09"
+                colorpierna = "#614601"
             } else {
-                color = "#5b81c7"
+                color = "#8AAAE5" //fondo claro, colores oscuros normales
+                colorcabeza = "#8f241d"
+                colorcuerpo = "#ad4415"
+                colorpierna = "#7d5b05"
             }
             contador++
 
+            // Linear Layout de la celda, empezamos a construir la celda
             val ll_celda = LinearLayout(context)
             ll_celda.layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -145,18 +165,22 @@ class PistolasFragment : Fragment() {
             ll_celda.orientation = LinearLayout.HORIZONTAL
             ll_celda.setPadding(10, 10, 10, 10)
             ll_celda.setBackgroundColor(Color.parseColor(color))
-
+            //-----------------------------------------------------------------
+            // Linear Layout que contendrá el nombre del arma y la foto
             val ll_photo_titulo = LinearLayout(context)
             ll_photo_titulo.layoutParams = ll_photo_titulo_params
             ll_photo_titulo.orientation = LinearLayout.VERTICAL
 
+            // Nombre arma
             val tv_titulo = TextView(context)
             tv_titulo.layoutParams = tv_nombre_arma
-            tv_titulo.text = arma.nombre
+            tv_titulo.text = "    ${arma.nombre}"
             tv_titulo.setTextColor(Color.parseColor("#161b21"))
+            tv_titulo.setTypeface(null, Typeface.BOLD)
 
             ll_photo_titulo.addView(tv_titulo)
 
+            // Foto arma
             val photo = ImageView(context)
             Picasso.get().load(arma.link_imagen).placeholder(R.drawable.w_qm_1_qm)
                 .into(photo)
@@ -166,12 +190,15 @@ class PistolasFragment : Fragment() {
 
             ll_photo_titulo.addView(photo)
 
+            // Añadimos la foto y el título a la celda
             ll_celda.addView(ll_photo_titulo)
-
+            //-----------------------------------------------------------------
+            // Linear Layout que contendrá el "bloque" de filas de textos
             val ll_bloque = LinearLayout(context)
             ll_bloque.layoutParams = ll_bloque_tvs_params
             ll_bloque.orientation = LinearLayout.VERTICAL
-
+            //-----------------------------------------------------------------
+            // Fila 1: Header tabla
             val ll_fila1 = LinearLayout(context)
             ll_fila1.layoutParams = ll_filas_bloque_params
             ll_fila1.orientation = LinearLayout.HORIZONTAL
@@ -205,7 +232,8 @@ class PistolasFragment : Fragment() {
             ll_fila1.addView(tv_piernas)
 
             ll_bloque.addView(ll_fila1)
-
+            //-----------------------------------------------------------------
+            // Fila 2: Daño cercano
             val ll_fila2 = LinearLayout(context)
             ll_fila2.layoutParams = ll_filas_bloque_params
             ll_fila2.orientation = LinearLayout.HORIZONTAL
@@ -221,25 +249,29 @@ class PistolasFragment : Fragment() {
             tv_close_cabeza.layoutParams = tv_fila_params
             tv_close_cabeza.gravity = Gravity.CENTER
             tv_close_cabeza.text = arma.closeDamage[0]
-            tv_close_cabeza.setTextColor(Color.parseColor("#161b21"))
+            tv_close_cabeza.setTextColor(Color.parseColor(colorcabeza))
+            tv_close_cabeza.setTypeface(null, Typeface.BOLD)
             ll_fila2.addView(tv_close_cabeza)
 
             val tv_close_cuerpo = TextView(context)
             tv_close_cuerpo.layoutParams = tv_fila_params
             tv_close_cuerpo.gravity = Gravity.CENTER
             tv_close_cuerpo.text = arma.closeDamage[1]
-            tv_close_cuerpo.setTextColor(Color.parseColor("#161b21"))
+            tv_close_cuerpo.setTextColor(Color.parseColor(colorcuerpo))
+            tv_close_cuerpo.setTypeface(null, Typeface.BOLD)
             ll_fila2.addView(tv_close_cuerpo)
 
             val tv_close_pierna = TextView(context)
             tv_close_pierna.layoutParams = tv_fila_params
             tv_close_pierna.gravity = Gravity.CENTER
             tv_close_pierna.text = arma.closeDamage[2]
-            tv_close_pierna.setTextColor(Color.parseColor("#161b21"))
+            tv_close_pierna.setTextColor(Color.parseColor(colorpierna))
+            tv_close_pierna.setTypeface(null, Typeface.BOLD)
             ll_fila2.addView(tv_close_pierna)
 
             ll_bloque.addView(ll_fila2)
-
+            //-----------------------------------------------------------------
+            // Fila 3: Daño media distancia
             val ll_fila3 = LinearLayout(context)
             ll_fila3.layoutParams = ll_filas_bloque_params
             ll_fila3.orientation = LinearLayout.HORIZONTAL
@@ -247,7 +279,7 @@ class PistolasFragment : Fragment() {
             val tv_medium = TextView(context)
             tv_medium.layoutParams = tv_fila_params
             tv_medium.gravity = Gravity.START
-            tv_medium.text = "0-20m"
+            tv_medium.text = "20-30m"
             tv_medium.setTextColor(Color.parseColor("#161b21"))
             ll_fila3.addView(tv_medium)
 
@@ -255,25 +287,29 @@ class PistolasFragment : Fragment() {
             tv_medium_cabeza.layoutParams = tv_fila_params
             tv_medium_cabeza.gravity = Gravity.CENTER
             tv_medium_cabeza.text = arma.mediumDamage[0]
-            tv_medium_cabeza.setTextColor(Color.parseColor("#161b21"))
+            tv_medium_cabeza.setTextColor(Color.parseColor(colorcabeza))
+            tv_medium_cabeza.setTypeface(null, Typeface.BOLD)
             ll_fila3.addView(tv_medium_cabeza)
 
             val tv_medium_cuerpo = TextView(context)
             tv_medium_cuerpo.layoutParams = tv_fila_params
             tv_medium_cuerpo.gravity = Gravity.CENTER
             tv_medium_cuerpo.text = arma.mediumDamage[1]
-            tv_medium_cuerpo.setTextColor(Color.parseColor("#161b21"))
+            tv_medium_cuerpo.setTextColor(Color.parseColor(colorcuerpo))
+            tv_medium_cuerpo.setTypeface(null, Typeface.BOLD)
             ll_fila3.addView(tv_medium_cuerpo)
 
             val tv_medium_pierna = TextView(context)
             tv_medium_pierna.layoutParams = tv_fila_params
             tv_medium_pierna.gravity = Gravity.CENTER
             tv_medium_pierna.text = arma.mediumDamage[2]
-            tv_medium_pierna.setTextColor(Color.parseColor("#161b21"))
+            tv_medium_pierna.setTextColor(Color.parseColor(colorpierna))
+            tv_medium_pierna.setTypeface(null, Typeface.BOLD)
             ll_fila3.addView(tv_medium_pierna)
 
             ll_bloque.addView(ll_fila3)
-
+            //-----------------------------------------------------------------
+            // Fila 4: Daño lejano
             val ll_fila4 = LinearLayout(context)
             ll_fila4.layoutParams = ll_filas_bloque_params
             ll_fila4.orientation = LinearLayout.HORIZONTAL
@@ -281,7 +317,7 @@ class PistolasFragment : Fragment() {
             val tv_far = TextView(context)
             tv_far.layoutParams = tv_fila_params
             tv_far.gravity = Gravity.START
-            tv_far.text = "0-20m"
+            tv_far.text = "30-50m"
             tv_far.setTextColor(Color.parseColor("#161b21"))
             ll_fila4.addView(tv_far)
 
@@ -289,21 +325,24 @@ class PistolasFragment : Fragment() {
             tv_far_cabeza.layoutParams = tv_fila_params
             tv_far_cabeza.gravity = Gravity.CENTER
             tv_far_cabeza.text = arma.farDamage[0]
-            tv_far_cabeza.setTextColor(Color.parseColor("#161b21"))
+            tv_far_cabeza.setTextColor(Color.parseColor(colorcabeza))
+            tv_far_cabeza.setTypeface(null, Typeface.BOLD)
             ll_fila4.addView(tv_far_cabeza)
 
             val tv_far_cuerpo = TextView(context)
             tv_far_cuerpo.layoutParams = tv_fila_params
             tv_far_cuerpo.gravity = Gravity.CENTER
             tv_far_cuerpo.text = arma.farDamage[1]
-            tv_far_cuerpo.setTextColor(Color.parseColor("#161b21"))
+            tv_far_cuerpo.setTextColor(Color.parseColor(colorcuerpo))
+            tv_far_cuerpo.setTypeface(null, Typeface.BOLD)
             ll_fila4.addView(tv_far_cuerpo)
 
             val tv_far_pierna = TextView(context)
             tv_far_pierna.layoutParams = tv_fila_params
             tv_far_pierna.gravity = Gravity.CENTER
             tv_far_pierna.text = arma.farDamage[2]
-            tv_far_pierna.setTextColor(Color.parseColor("#161b21"))
+            tv_far_pierna.setTextColor(Color.parseColor(colorpierna))
+            tv_far_pierna.setTypeface(null, Typeface.BOLD)
             ll_fila4.addView(tv_far_pierna)
 
             ll_bloque.addView(ll_fila4)
@@ -312,7 +351,8 @@ class PistolasFragment : Fragment() {
             salto.layoutParams = view_salto
 
             ll_bloque.addView(salto)
-
+            //-----------------------------------------------------------------
+            // Fila 5: Tipo arma
             val ll_fila5 = LinearLayout(context)
             ll_fila5.layoutParams = ll_filas_bloque_params
             ll_fila5.orientation = LinearLayout.HORIZONTAL
@@ -329,10 +369,12 @@ class PistolasFragment : Fragment() {
             tv_tipo_arma.gravity = Gravity.START
             tv_tipo_arma.text = " ${arma.tipo}"
             tv_tipo_arma.setTextColor(Color.parseColor("#161b21"))
+            tv_tipo_arma.setTypeface(null, Typeface.BOLD)
             ll_fila5.addView(tv_tipo_arma)
 
             ll_bloque.addView(ll_fila5)
-
+            //-----------------------------------------------------------------
+            // Fila 6: Coste arma
             val ll_fila6 = LinearLayout(context)
             ll_fila6.layoutParams = ll_filas_bloque_params
             ll_fila6.orientation = LinearLayout.HORIZONTAL
@@ -349,10 +391,11 @@ class PistolasFragment : Fragment() {
             tv_coste_arma.gravity = Gravity.START
             tv_coste_arma.text = " ${arma.coste}"
             tv_coste_arma.setTextColor(Color.parseColor("#161b21"))
+            tv_coste_arma.setTypeface(null, Typeface.BOLD)
             ll_fila6.addView(tv_coste_arma)
 
             ll_bloque.addView(ll_fila6)
-
+            //-----------------------------------------------------------------
             // Añadimos el bloque ya hecho a la celda
             ll_celda.addView(ll_bloque)
 
@@ -367,27 +410,40 @@ class PistolasFragment : Fragment() {
 
         }
 
+        // Un salto para que no se entrecorte la última
         val salto1 = View(context)
         salto1.layoutParams = view_gran_salto
         ll_principal.addView(salto1)
 
     }
 
-    fun cargar_datos() {
-        val pistolaEjemplo = Arma()
-        val pistola1 = Arma()
-        val pistola2 = Arma()
-        val pistola3 = Arma()
-        val pistola4 = Arma()
-        val pistola5 = Arma()
-        val pistola6 = Arma()
-        listaArmas.add(pistolaEjemplo)
-        listaArmas.add(pistola1)
-        listaArmas.add(pistola2)
-        listaArmas.add(pistola3)
-        listaArmas.add(pistola4)
-        listaArmas.add(pistola5)
-        listaArmas.add(pistola6)
+    fun cargar_datos(listaArmas: MutableList<Arma>) {
+        val pistola1_classic = Arma(1, "Classic",
+            "https://i.gyazo.com/73be727d8c2e73e0fdf5721077de112c.png",
+        "Pistola", "Free",
+            listOf("78", "26", "22"), listOf("66", "22", "18"), listOf("66", "22", "18"))
+        val pistola2_shorty = Arma(2, "Shorty",
+            "https://i.gyazo.com/bd0886c28e80f65d871398fa8ac467f9.png",
+            "Pistola-Escopeta", "200",
+            listOf("36", "12", "10"), listOf("24", "8", "6"), listOf("24", "8", "6"))
+        val pistola3_frenzy = Arma(3, "Frenzy",
+            "https://i.gyazo.com/de21c40b4835e3dc185236b5c2ed2291.png",
+            "Pistola-Subfusil", "400",
+            listOf("78", "26", "22"), listOf("63", "21", "17"), listOf("63", "21", "17"))
+        val pistola4_ghost = Arma(4, "Ghost",
+            "https://i.gyazo.com/ef1d51e39ffd262ce3ab78dfa8392271.png",
+            "Pistola", "500",
+            listOf("105", "33", "26"), listOf("105", "33", "26"), listOf("88", "25", "21"))
+        val pistola5_sheriff = Arma(5, "Sheriff",
+            "https://i.gyazo.com/b7f7661035b5974c346c881f912acbe0.png",
+            "Pistola-Revolver", "800",
+            listOf("160", "55", "47"), listOf("160", "55", "47"), listOf("145", "50", "43"))
+
+        listaArmas.add(pistola1_classic)
+        listaArmas.add(pistola2_shorty)
+        listaArmas.add(pistola3_frenzy)
+        listaArmas.add(pistola4_ghost)
+        listaArmas.add(pistola5_sheriff)
 
     }
 
