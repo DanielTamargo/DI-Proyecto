@@ -67,6 +67,29 @@
     <string name="siguiente">Siguiente</string>
     <string name="crear_personaje">Crear Personaje</string>
     <string name="editar_personaje">Editar Personaje</string>
+    <string name="descripcion_2">Descripción:</string>
+    <string name="link_imagen">Link imagen:</string>
+    <string name="nombre_habilidad_1">nombre habilidad 1</string>
+    <string name="link_directo_a_una_imagen_opcional">link directo a una imagen (opcional)</string>
+    <string name="descripcion_habilidad_1">descripcion habilidad 1</string>
+    <string name="habilidad_2">Habilidad 2</string>
+    <string name="nombre">Nombre:</string>
+    <string name="nombre_habilidad_2">nombre habilidad 2</string>
+    <string name="descripcion_habilidad_2">descripcion habilidad 2</string>
+    <string name="habilidad_3">Habilidad 3</string>
+    <string name="nombre_habilidad_3">nombre habilidad 3</string>
+    <string name="descripcion_habilidad_3">descripcion habilidad 3</string>
+    <string name="habilidad_4">Habilidad 4</string>
+    <string name="nombre_habilidad_4">nombre habilidad 4</string>
+    <string name="descripcion_habilidad_4">descripcion habilidad 4</string>
+    <string name="volver">Volver</string>
+    <string name="guardar">Guardar</string>
+    <string name="habilidad_1">Habilidad 1</string>
+    <string name="m_ximo_16_caracteres">máximo 16 caracteres</string>
+    <string name="_1">1</string>
+    <string name="id">ID:</string>
+    <string name="personaje">Personaje</string>
+    <string name="datos_personaje_a_crear">DATOS PERSONAJE A CREAR</string>
 
 
 </resources>

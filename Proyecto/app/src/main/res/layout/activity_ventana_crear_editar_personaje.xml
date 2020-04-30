@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".VentanaCrearEditarPersonaje">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,6 +22,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
             <TextView
                 android:id="@+id/crearEditar_titulo"
                 android:layout_width="match_parent"
@@ -24,11 +33,12 @@
                 android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
-                android:text="DATOS PERSONAJE A CREAR"/>
+                android:text="@string/datos_personaje_a_crear"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="20dp"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -39,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Personaje"/>
+                android:text="@string/personaje"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -47,9 +57,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="ID: "/>
+                    android:text="@string/id"/>
                 <TextView
                     android:id="@+id/crearEditar_id"
                     android:layout_width="0dp"
@@ -58,7 +69,7 @@
                     android:gravity="start"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:text=" 1"/>
+                    android:text="@string/_1"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -67,9 +78,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Nombre: "/>
+                    android:text="@string/nombre"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_nombre"
@@ -80,7 +92,7 @@
                     android:textSize="15sp"
                     android:inputType="textPersonName"
                     android:layout_marginEnd="20dp"
-                    android:hint="máximo 16 caracteres" />
+                    android:hint="@string/m_ximo_16_caracteres" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,9 +101,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Link imagen: "/>
+                    android:text="@string/link_imagen"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_linkImagen"
@@ -101,7 +114,7 @@
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     android:inputType="textPersonName"
-                    android:hint="link directo a una imagen (opcional)" />
+                    android:hint="@string/link_directo_a_una_imagen_opcional" />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -119,7 +132,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Habilidad 1"/>
+                android:text="@string/habilidad_1"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -128,9 +141,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Nombre: "/>
+                    android:text="@string/nombre"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_nombreHabilidad1"
@@ -141,7 +155,7 @@
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     android:inputType="textPersonName"
-                    android:hint="nombre habilidad 1" />
+                    android:hint="@string/nombre_habilidad_1" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -150,9 +164,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Link imagen: "/>
+                    android:text="@string/link_imagen"/>
                 <EditText
                     android:id="@+id/crearEditar_et_linkHabilidad1"
                     android:layout_width="0dp"
@@ -161,7 +176,7 @@
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     android:inputType="textPersonName"
-                    android:hint="link directo a una imagen (opcional)" />
+                    android:hint="@string/link_directo_a_una_imagen_opcional" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -170,9 +185,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Descripción: "/>
+                    android:text="@string/descripcion_2"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_descHabilidad1"
@@ -183,7 +199,7 @@
                     android:layout_marginEnd="20dp"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:hint="descripcion habilidad 1" />
+                    android:hint="@string/descripcion_habilidad_1" />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -200,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Habilidad 2"/>
+                android:text="@string/habilidad_2"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -209,9 +225,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Nombre: "/>
+                    android:text="@string/nombre"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_nombreHabilidad2"
@@ -222,7 +239,7 @@
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     android:inputType="textPersonName"
-                    android:hint="nombre habilidad 2" />
+                    android:hint="@string/nombre_habilidad_2" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -231,9 +248,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Link imagen: "/>
+                    android:text="@string/link_imagen"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_linkHabilidad2"
@@ -241,7 +259,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="3"
-                    android:hint="link directo a una imagen (opcional)"
+                    android:hint="@string/link_directo_a_una_imagen_opcional"
                     android:inputType="textPersonName"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -252,9 +270,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Descripción: "/>
+                    android:text="@string/descripcion_2"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_descHabilidad2"
@@ -265,7 +284,7 @@
                     android:layout_marginEnd="20dp"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:hint="descripcion habilidad 2" />
+                    android:hint="@string/descripcion_habilidad_2" />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -282,7 +301,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Habilidad 3"/>
+                android:text="@string/habilidad_3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -291,9 +310,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Nombre: "/>
+                    android:text="@string/nombre"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_nombreHabilidad3"
@@ -304,7 +324,7 @@
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     android:inputType="textPersonName"
-                    android:hint="nombre habilidad 3" />
+                    android:hint="@string/nombre_habilidad_3" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -313,9 +333,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Link imagen: "/>
+                    android:text="@string/link_imagen"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_linkHabilidad3"
@@ -323,7 +344,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="3"
-                    android:hint="link directo a una imagen (opcional)"
+                    android:hint="@string/link_directo_a_una_imagen_opcional"
                     android:inputType="textPersonName"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -334,9 +355,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Descripción: "/>
+                    android:text="@string/descripcion_2"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_descHabilidad3"
@@ -344,7 +366,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="3"
-                    android:hint="descripcion habilidad 3"
+                    android:hint="@string/descripcion_habilidad_3"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:textSize="15sp" />
@@ -364,7 +386,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Habilidad 4"/>
+                android:text="@string/habilidad_4"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -373,9 +395,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Nombre: "/>
+                    android:text="@string/nombre"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_nombreHabilidad4"
@@ -386,7 +409,7 @@
                     android:textSize="15sp"
                     android:layout_marginEnd="20dp"
                     android:inputType="textPersonName"
-                    android:hint="nombre habilidad 4" />
+                    android:hint="@string/nombre_habilidad_4" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -395,9 +418,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Link imagen: "/>
+                    android:text="@string/link_imagen"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_linkHabilidad4"
@@ -406,7 +430,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_weight="3"
                     android:textSize="15sp"
-                    android:hint="link directo a una imagen (opcional)"
+                    android:hint="@string/link_directo_a_una_imagen_opcional"
                     android:inputType="textPersonName"
                     />
             </LinearLayout>
@@ -417,9 +441,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:gravity="end"
                     android:textColor="@color/colorPrimaryDark"
-                    android:text="Descripción: "/>
+                    android:text="@string/descripcion_2"/>
 
                 <EditText
                     android:id="@+id/crearEditar_et_descHabilidad4"
@@ -430,7 +455,7 @@
                     android:layout_marginEnd="20dp"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
-                    android:hint="descripcion habilidad 4" />
+                    android:hint="@string/descripcion_habilidad_4" />
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -441,11 +466,27 @@
                 android:background="@color/colorPrimaryDark"/>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"/>
-
-
+                android:layout_height="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/crearEditar_b_volver"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/volver" />
+                <Button
+                    android:id="@+id/crearEditar_b_guardar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/guardar" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="40dp"/>
         </LinearLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

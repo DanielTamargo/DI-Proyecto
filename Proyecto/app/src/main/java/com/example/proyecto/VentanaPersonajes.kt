@@ -10,6 +10,7 @@ import android.view.Menu
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
 import com.example.proyecto.BBDD.AppDatabase
 import com.example.proyecto.BBDD.Habilidad
@@ -25,12 +26,16 @@ class VentanaPersonajes : AppCompatActivity() {
     lateinit var lista_personajes: List<Personaje>
     lateinit var lista_habilidades: List<Habilidad>
     lateinit var lista_habilidades_personaje: List<Habilidad>
+    private lateinit var toolbar: Toolbar
     var index = 0
     var index_habilidad = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ventana_personajes)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         supportFragmentManager.beginTransaction().commit()
         /*
@@ -57,6 +62,12 @@ class VentanaPersonajes : AppCompatActivity() {
             //abrir ventana crear personaje
             val intent = Intent(this, VentanaCrearEditarPersonaje::class.java)
             startActivity(intent)
+        }
+
+        personajes_tv_descHabilidad.setOnClickListener {
+            if (index == 3) {
+                Toast.makeText(this, "¡¡Has encontrado el cuarto Easter Egg!!", Toast.LENGTH_LONG).show()
+            }
         }
 
         personajes_b_next.setOnClickListener {
@@ -105,10 +116,12 @@ class VentanaPersonajes : AppCompatActivity() {
 
     }
 
+    /*
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
+    */
 
     fun oscurecer_imagenes_habilidades(imagenButtonHabilidad: ImageButton) {
         //orange: #b55e12, darkblue: #161b21
