@@ -3,7 +3,9 @@ package com.example.proyecto
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import kotlinx.android.synthetic.main.activity_ventana_crear_editar_personaje.*
 
 class VentanaCrearEditarPersonaje : AppCompatActivity() {
 
@@ -39,12 +41,65 @@ class VentanaCrearEditarPersonaje : AppCompatActivity() {
         "https://i.gyazo.com/ef00c1f35ea81a9aec458223f0b51143.png"
     )
 
+    val intCrearEditar = 0 // 0 = crear, 1 = editar
+    val indexPersonaje = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ventana_crear_editar_personaje)
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        if (intCrearEditar == 1) {
+            crearEditar_titulo.text = "DATOS PERSONAJE A EDITAR"
+        }
+
+        crearEditar_b_guardar.setOnClickListener {
+
+            val nombrePersonaje = crearEditar_et_nombre.text.toString()
+            val linkFoto = crearEditar_et_linkImagen.text.toString()
+
+            val nombreHabilidad1 = crearEditar_et_nombreHabilidad1.text.toString()
+            val descripcionHabilidad1 = crearEditar_et_descHabilidad1.text.toString()
+            val linkFotoHabilidad1 = crearEditar_et_linkHabilidad1.text.toString()
+
+            val nombreHabilidad2 = crearEditar_et_nombreHabilidad2.text.toString()
+            val descripcionHabilidad2 = crearEditar_et_descHabilidad2.text.toString()
+            val linkFotoHabilidad2 = crearEditar_et_linkHabilidad2.text.toString()
+
+            val nombreHabilidad3 = crearEditar_et_nombreHabilidad3.text.toString()
+            val descripcionHabilidad3 = crearEditar_et_descHabilidad3.text.toString()
+            val linkFotoHabilidad3 = crearEditar_et_linkHabilidad3.text.toString()
+
+            val nombreHabilidad4 = crearEditar_et_nombreHabilidad4.text.toString()
+            val descripcionHabilidad4 = crearEditar_et_descHabilidad4.text.toString()
+            val linkFotoHabilidad4 = crearEditar_et_linkHabilidad4.text.toString()
+
+            if (nombrePersonaje.isEmpty() || nombreHabilidad1.isEmpty() || nombreHabilidad2.isEmpty()
+                || nombreHabilidad3.isEmpty() || nombreHabilidad4.isEmpty() || descripcionHabilidad1.isEmpty()
+                || descripcionHabilidad2.isEmpty() || descripcionHabilidad3.isEmpty()
+                || descripcionHabilidad4.isEmpty()) {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Error")
+                builder.setMessage("¡Tienes que rellenar todos los datos necesarios!\n" +
+                        "Los únicos opcionales son los links.")
+                builder.setNegativeButton("Ok"){dialog, which ->  }
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+            } else {
+
+
+            }
+        }
+
+        crearEditar_b_volver.setOnClickListener {
+            finish()
+        }
+
+    }
+
+    fun configurar_datos() {
 
     }
 

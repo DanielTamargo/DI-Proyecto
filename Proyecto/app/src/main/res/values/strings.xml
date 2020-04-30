@@ -15,7 +15,7 @@
     <string name="imagenmapasplit">ImagenMapaSplit</string>
     <string name="imagenmapabind">ImagenMapaBind</string>
     <string name="imagendelmapa">ImagenDelMapa</string>
-    <string name="personaje">Personaje</string>
+    <string name="personaje_personaje">Personaje</string>
     <string name="nombre_habilidad">Nombre habilidad</string>
     <string name="descripcion_habilidad">Descripción de la habilidad, lalalala, Omen es una sombra muy sexy, lalalalalala, tiene una voz como la de Reaper del Overwatch lalalla</string>
     <string name="habilidad1">Habilidad1</string>
@@ -64,6 +64,9 @@
     <string name="bind_vista_defensores">Activar vista defensores habituales</string>
     <string name="anterior">Anterior</string>
     <string name="tvNumPj">1/5</string>
+
+
+
     <string name="siguiente">Siguiente</string>
     <string name="crear_personaje">Crear Personaje</string>
     <string name="editar_personaje">Editar Personaje</string>
