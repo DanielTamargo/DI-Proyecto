@@ -66,7 +66,6 @@
     <string name="tvNumPj">1/5</string>
 
 
-
     <string name="siguiente">Siguiente</string>
     <string name="crear_personaje">Crear Personaje</string>
     <string name="editar_personaje">Editar Personaje</string>
@@ -93,6 +92,24 @@
     <string name="id">ID:</string>
     <string name="personaje">Personaje</string>
     <string name="datos_personaje_a_crear">DATOS PERSONAJE A CREAR</string>
+    <string name="borrar">Borrar</string>
+    <string name="qu_es_valorant">Qué es Valorant</string>
+
+    <string name="queesvalorant_1">¿Qué es Valorant?</string>
+    <string name="queesvalorant_2">Valorant es un juego multijugador de disparos que enfrenta a 2 equipos, cada uno formado por 5 jugadores.</string>
+    <string name="queesvalorant_3">Cada partida jugada se basa en rondas, en cada ronda habrá un equipo atacante y uno defensor.</string>
+    <string name="queesvalorant_4">El equipo atacante dispondrá de una bomba llamada Spike que portará uno de los jugadores (si este jugador muere, la Spike caerá al suelo y otro jugador deberá recogerla)</string>
+    <string name="queesvalorant_5">El objetivo del equipo atacante es, antes de que se acabe el tiempo de la ronda, colocar la bomba en una de las zonas marcadas en el mapa. Una vez plantada dicha bomba, esta tardará un periodo de tiempo en explotar.</string>
+    <string name="queesvalorant_6">Durante este periodo, el equipo atacante tratará de defender la bomba hasta que explote, mientras que el equipo defensor tratará de desactivarla.</string>
+    <string name="queesvalorant_7">Los jugadores cuentan con una única vida por ronda, por lo que si un equipo es exterminado antes de realizar su función, perderá la ronda.</string>
+    <string name="queesvalorant_8">Por ejemplo, si el equipo atacante muere antes de colocar la Spike, perderán la ronda al instante. En cambio, si mueren defendiendo la Spike y esta llega a explotar, aún habiendo muerto todos, ganarán la ronda.</string>
+    <string name="queesvalorant_9">Asimismo, si el equipo defensor muere, perderán la ronda.</string>
+    <string name="queesvalorant_10">Tras 12 rondas disputadas, se produce un cambio de lado, el equipo que ha atacado las 12 primeras rondas pasará a defender, y viceversa.</string>
+    <string name="queesvalorant_11">El vencedor de la partida será el equipo que gane 13 rondas.</string>
+    <string name="queesvalorant_12">Básicamente, Valorant es un juego que mezcla: cooperación, competitividad, precisión con las armas y estrategia.</string>
+    <string name="queesvalorant_13"><a href="https://beta.playvalorant.com/es-es/">¿Quieres probarlo? ¡Haz clic aquí para visitar la página oficial de Valorant y apúntate a la Beta cerrada!</a></string>
+
+
 
 
 </resources>

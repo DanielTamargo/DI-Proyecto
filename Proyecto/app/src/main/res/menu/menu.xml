@@ -9,8 +9,10 @@
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" /> -->
     <item
-        android:id="@+id/menu_b_ultparche"
-        android:title="@string/ultimo_parche" />
+        android:id="@+id/menu_b_queEsValorant"
+        android:enabled="true"
+        android:visible="true"
+        android:title="@string/qu_es_valorant" />
     <item
         android:id="@+id/menu_b_legalinfo"
         android:enabled="true"

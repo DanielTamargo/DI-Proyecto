@@ -1,6 +1,7 @@
 package com.example.proyecto
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import android.view.Menu
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.room.Room
 import com.example.proyecto.BBDD.AppDatabase
@@ -29,6 +31,58 @@ class VentanaPersonajes : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     var index = 0
     var index_habilidad = 0
+    var eliminado = false
+    var iniciado = false
+
+    companion object {
+        val ID_PERSONAJE = "ID_PERSONAJE"
+        val INT_CREAREDITAR = "INT_CREAREDITAR"
+        val CREAREDITAR = 1
+        val ELIMINADO = "ELIMINADO"
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        if (iniciado) {
+            if (eliminado) {
+                eliminado = false
+                index = 0
+                index_habilidad = 0
+                oscurecer_imagenes_habilidades(personajes_ib_ability_1)
+            }
+            cargar_datos()
+        } else {
+            iniciado = true
+            cargar_datos()
+        }
+        Log.d("OnRestart", "Holaa estoy aquiii")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (iniciado) {
+            if (eliminado) {
+                eliminado = false
+                index = 0
+                index_habilidad = 0
+                oscurecer_imagenes_habilidades(personajes_ib_ability_1)
+            }
+            cargar_datos()
+        } else {
+            iniciado = true
+            cargar_datos()
+        }
+        Log.d("OnResume", "Holaa estoy aquiii")
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CREAREDITAR) {
+            if (resultCode == Activity.RESULT_OK) {
+                eliminado = try { data!!.getBooleanExtra(ELIMINADO, false) } catch (e: Exception) { false }
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,15 +106,42 @@ class VentanaPersonajes : AppCompatActivity() {
 
         personajes_b_editar.setOnClickListener {
             if (index in 0..4) {
-                //alerta
+                //alertas
+                if (lista_personajes.size > 5) {
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("Error")
+                    builder.setMessage(
+                        "¡No puedes editar personajes oficiales!\n" +
+                                "¡Los únicos personajes editables son los que tú hayas creado!."
+                    )
+                    builder.setNegativeButton("Ok") { dialog, which -> }
+                    val dialog: AlertDialog = builder.create()
+                    dialog.show()
+                } else {
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("Error")
+                    builder.setMessage(
+                        "¡No puedes editar personajes oficiales!\n" +
+                                "¡Primero prueba a crear un personaje personalizado!."
+                    )
+                    builder.setNegativeButton("Ok") { dialog, which -> }
+                    val dialog: AlertDialog = builder.create()
+                    dialog.show()
+                }
             } else {
                 //abrir ventana crear pero rellenando los datos
+                val intent = Intent(this, VentanaCrearEditarPersonaje::class.java)
+                intent.putExtra(INT_CREAREDITAR, 1)
+                intent.putExtra(ID_PERSONAJE, (index + 1))
+                startActivityForResult(intent, CREAREDITAR)
             }
         }
 
         personajes_b_crear.setOnClickListener {
             //abrir ventana crear personaje
             val intent = Intent(this, VentanaCrearEditarPersonaje::class.java)
+            intent.putExtra(INT_CREAREDITAR, 0)
+            intent.putExtra(ID_PERSONAJE, (lista_personajes.size + 1))
             startActivity(intent)
         }
 
@@ -94,24 +175,28 @@ class VentanaPersonajes : AppCompatActivity() {
             index_habilidad = 0
             oscurecer_imagenes_habilidades(personajes_ib_ability_1)
             ejecutar_cargar_datos()
+            personajes_tv_descHabilidad.requestFocus()
         }
 
         personajes_ib_ability_2.setOnClickListener {
             index_habilidad = 1
             oscurecer_imagenes_habilidades(personajes_ib_ability_2)
             ejecutar_cargar_datos()
+            personajes_tv_descHabilidad.requestFocus()
         }
 
         personajes_ib_ability_3.setOnClickListener {
             index_habilidad = 2
             oscurecer_imagenes_habilidades(personajes_ib_ability_3)
             ejecutar_cargar_datos()
+            personajes_tv_descHabilidad.requestFocus()
         }
 
         personajes_ib_ability_4.setOnClickListener {
             index_habilidad = 3
             oscurecer_imagenes_habilidades(personajes_ib_ability_4)
             ejecutar_cargar_datos()
+            personajes_tv_descHabilidad.requestFocus()
         }
 
     }
@@ -246,11 +331,11 @@ class VentanaPersonajes : AppCompatActivity() {
             }
         }
         //Picasso.get().load("https://assets.cdn.moviepilot.de/files/830b56f3da15eb6934e86a3f55e430a97ce7cbfe90378a6262967a573977/fill/992/477/10_18%20Naruto%20Shippuden%20ProSieben%20Maxx%20letzte%20Folgen.jpg\n").fit().centerCrop().placeholder(drawPersonaje).into(personajes_i_imgpersonaje)
-        Picasso.get().load(lista_personajes[index].link_imagen).fit().placeholder(drawPersonaje).into(personajes_i_imgpersonaje)
-        Picasso.get().load(lista_habilidades_personaje[0].link_imagen).fit().placeholder(drawHab1).into(personajes_ib_ability_1)
-        Picasso.get().load(lista_habilidades_personaje[1].link_imagen).fit().placeholder(drawHab2).into(personajes_ib_ability_2)
-        Picasso.get().load(lista_habilidades_personaje[2].link_imagen).fit().placeholder(drawHab3).into(personajes_ib_ability_3)
-        Picasso.get().load(lista_habilidades_personaje[3].link_imagen).fit().placeholder(drawHab4).into(personajes_ib_ability_4)
+        try { Picasso.get().load(lista_personajes[index].link_imagen).placeholder(drawPersonaje).into(personajes_i_imgpersonaje) } catch (e: Exception) {}
+        try { Picasso.get().load(lista_habilidades_personaje[0].link_imagen).placeholder(drawHab1).into(personajes_ib_ability_1) } catch (e: Exception) {}
+        try { Picasso.get().load(lista_habilidades_personaje[1].link_imagen).placeholder(drawHab2).into(personajes_ib_ability_2) } catch (e: Exception) {}
+        try { Picasso.get().load(lista_habilidades_personaje[2].link_imagen).placeholder(drawHab3).into(personajes_ib_ability_3) } catch (e: Exception) {}
+        try { Picasso.get().load(lista_habilidades_personaje[3].link_imagen).placeholder(drawHab4).into(personajes_ib_ability_4) } catch (e: Exception) {}
     }
 
     fun cargar_habilidades() {

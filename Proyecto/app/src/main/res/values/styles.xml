@@ -13,6 +13,8 @@
         <item name="android:textColorSecondary">@color/darkRed</item>
         <item name="popupTheme">@style/Theme.AppCompat.Light</item>
 
+        <item name="android:textColorLink">@color/darkLinkBlue</item>
+
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
