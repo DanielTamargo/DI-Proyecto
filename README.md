@@ -30,5 +30,26 @@ Utilidad: Proporcionar información sobre el juego y sus distintos mapas, person
   * A la hora de crear o editar, se comprueba que estén todos los datos obligatorios rellenados (existen datos opcionales, que son los links a las imágenes de los personajes y sus habilidades, puesto que si se deja el link vacío, la propia aplicación utilizará unos arrays de links para seleccionar uno aleatorio y de esta manera el personaje tendrá su imagen principal y sus imágenes para las habilidades.
   * Para borrar un personaje habrá que acceder a Editar personaje, si no se accede a través de ese botón, no existirá la opción eliminar (no se puede eliminar algo que no se ha creado). Si se intenta editar un personaje oficial, saltará un Alert Dialog indicando que eso no es posible, además, si estás intentando editar sin haber creado ningún personaje, mostrará un mensaje distinto a cuando intentes editar un personaje oficial pero sí hayas creado ya con anterioridad un personaje personalizado.
 - Utilizo numerosos Intent con sus respectivos startActivity para iniciar actividades e incluso en una ocasión utilizo startActivityForResult pasándole datos y recibiendo un boolean que confirma si el personaje ha sido eliminado o no, ya que si ha sido eliminado, será necesario cambiar el personaje a cargar para evitar que la aplicación falle por un NullPointerException intentando cargar un personaje no existente.
+- **Picasso**: para cargar las imágenes a través de links, aunque los personajes oficiales tienen sus imágenes guardadas como Drawables para utilizarlas como placeHolder en caso de que Picasso llegue a fallar por ejemplo, por un error del servidor o falta de conexión a internet.
+- **Muchos Datos**: bastantes datos sobre el juego recavados con la finalidad de hacer la aplicación lo más precisa posible.
+- **Easter Eggs**: la aplicación cuenta con 5 easter eggs escondidos, cada uno será una alerta tipo Toast. Están escondidas por toda la aplicación, ¿podrás encontrar las 5? Ojo, la mayoría son simplemente clicar en alguna parte oculta, otra será clicar X veces (tampoco demasiadas) en algún botón o checkbox...
 
-  
+
+Las imágenes de los personajes, iconos de las habilidades, datos de los mapas/personajes/armas y fuente pertenecen a la empresa Riot Games. Para términos legales consultar el apartado 'Términos Legales' disponible en una de las opciones de la Toolbar dentro de la propia aplicación.
+
+
+## Vista Previa de la aplicación
+
+![Intro](/Proyecto-Assets/GitHub-VistaPrevia/intro.gif)
+
+![VentanaPrincipal](/Proyecto-Assets/GitHub-VistaPrevia/ventanaprincipal.png)
+
+![VentanaMapas](/Proyecto-Assets/GitHub-VistaPrevia/ventanamapas.png)
+
+![VentanaPersonajes](/Proyecto-Assets/GitHub-VistaPrevia/ventanapersonajes.png)
+
+![VentanaArmas](/Proyecto-Assets/GitHub-VistaPrevia/ventanaarmas.png)
+
+## Código 'RecyclerView casero'
+
+![RecyclerViewCasero](/Proyecto-Assets/GitHub-VistaPrevia/recyclerviewcasero.gif)
