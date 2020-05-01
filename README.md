@@ -2,6 +2,10 @@
 Proyecto final de la asignatura Desarrollo de Interfaces.
 Basado en Android y Kotlin.
 
+## Descargar el proyecto o la APK
+- [**Proyecto: haz clic aquí para descargar únicamente el .rar con el proyecto**](https://github.com/DanielTamargo/DI-Proyecto/raw/master/Proyecto-Assets/GitHub-VistaPrevia/Proyecto.rar)
+- [**Enlace a Google Drive para descargar la APK** (en algunos móviles no deja instalarla por 'falta de seguridad')](https://drive.google.com/file/d/1d0AYdyW6uqyRQkbqVuUpjsbs5vGDs4ig/view?usp=sharing)
+
 ## Resumen de la tarea
 *"El proyecto consiste en crear una aplicación para Android utilizando Kotlin como lenguaje de programación.
 La aplicación deberá tener un toolbar con diferentes opciones para el menú y usar un RecyclerView o ViewPager2 para el diseño, o ambos. Además, es posible usar CardViews y TabLayout para mejorar el diseño.
